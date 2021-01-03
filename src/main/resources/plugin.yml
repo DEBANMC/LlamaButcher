@@ -1,0 +1,8 @@
+name: LlamaButcher
+version: 1.0.0
+api: 1.0.0
+main: net.lldv.llamabutcher.LlamaButcher
+author: Proxma
+soft-depend:
+  - NPC
+  - LlamaPets

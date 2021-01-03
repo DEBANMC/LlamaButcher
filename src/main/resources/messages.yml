@@ -1,0 +1,19 @@
+prefix: "§8» §4LlamaButcher §8| §7"
+
+clearlag.command: "Successfully killed [0] [1]."
+
+clearlag.chat: "§cClearing all entities in [0] [1]."
+clearlag.chat.end: "§aSuccessfully cleared [0] [1]."
+
+clearlag.title: "§cClearlag"
+clearlag.subtitle: "In [0] [1]."
+clearlag.subtitle.end: "§aSuccessfully cleared [0] [1]."
+
+clearlag.actionbar: "§cClearing all entities in [0] [1]."
+clearlag.actionbar.end: "§aSuccessfully cleared [0] [1]."
+
+entity: "entity"
+entities: "entities"
+
+second: "second"
+seconds: "seconds"
