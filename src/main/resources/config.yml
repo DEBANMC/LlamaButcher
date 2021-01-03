@@ -1,0 +1,28 @@
+# Time in seconds between the clear lags
+Schedule: 300
+
+# Available: chat, title, actionbar
+Announcement: title
+
+# Here you can disable/enable killing entities with nametags
+KillEntitiesWithNametags: true
+
+# If you don't want any announcements set it to Announcements: []
+Announcements:
+  - 60
+  - 30
+  - 15
+  - 10
+  - 5
+  - 4
+  - 3
+  - 2
+  - 1
+
+
+Commands:
+  Clearlag:
+    Name: "clearlag"
+    Description: "Clear all the lag."
+    Permission: "llamabutcher.clearlag"
+    Usage: "/clearlag"
