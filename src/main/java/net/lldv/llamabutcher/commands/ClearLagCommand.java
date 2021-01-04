@@ -27,7 +27,8 @@ public class ClearLagCommand extends PluginCommand<LlamaButcher> {
     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
         if (sender.hasPermission(getPermission())) {
             final int killed = this.getPlugin().clearAll();
-            sender.sendMessage(Language.get("clearlag.command", killed));
+            final String entString = killed == 1 ? Language.getNP("entity") : Language.getNP("entities");
+            sender.sendMessage(Language.get("clearlag.command", killed, entString));
         }
         return false;
     }

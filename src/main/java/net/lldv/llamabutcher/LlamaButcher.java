@@ -2,8 +2,10 @@ package net.lldv.llamabutcher;
 
 import cn.nukkit.Player;
 import cn.nukkit.entity.Entity;
+import cn.nukkit.entity.item.EntityBoat;
 import cn.nukkit.entity.item.EntityEndCrystal;
 import cn.nukkit.entity.item.EntityPainting;
+import cn.nukkit.entity.item.EntityVehicle;
 import cn.nukkit.plugin.PluginBase;
 import cn.nukkit.utils.Config;
 import com.creeperface.nukkit.placeholderapi.api.PlaceholderAPI;
@@ -80,11 +82,13 @@ public class LlamaButcher extends PluginBase {
                 boolean kill = true;
                 if (this.slapper && entity instanceof NPC_Entity) kill = false;
                 else if (this.pets && entity instanceof Pet) kill = false;
+                else if (!this.nametag && entity.hasCustomName()) kill = false;
                 else if (entity instanceof Player) kill = false;
                 else if (entity instanceof EntityPainting) kill = false;
                 else if (entity instanceof EntityEndCrystal) kill = false;
+                else if (entity instanceof EntityBoat) kill = false;
+                else if (entity instanceof EntityVehicle) kill = false; // minecarts
                 else if (entity.getNetworkId() == 61) kill = false; // armor stand
-                else if (this.nametag && entity.hasCustomName()) kill = false;
 
                 if (kill) {
                     entity.despawnFromAll();
