@@ -2,11 +2,14 @@ package net.lldv.llamabutcher;
 
 import cn.nukkit.Player;
 import cn.nukkit.entity.Entity;
+import cn.nukkit.entity.item.EntityBoat;
 import cn.nukkit.entity.item.EntityEndCrystal;
 import cn.nukkit.entity.item.EntityPainting;
+import cn.nukkit.entity.item.EntityVehicle;
 import cn.nukkit.plugin.PluginBase;
 import cn.nukkit.utils.Config;
 import com.creeperface.nukkit.placeholderapi.api.PlaceholderAPI;
+import gt.creeperface.holograms.entity.HologramEntity;
 import idk.plugin.npc.entities.NPC_Entity;
 import lombok.Getter;
 import lombok.Setter;
@@ -26,7 +29,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class LlamaButcher extends PluginBase {
 
-    private boolean slapper = false, pets = false, nametag = false;
+    private boolean slapper = false, pets = false, nametag = false, holograms = false;
     @Getter
     private Announcement announcement;
 
@@ -58,8 +61,9 @@ public class LlamaButcher extends PluginBase {
         else if (announcements.equalsIgnoreCase("actionbar")) announcement = Announcement.ACTIONBAR;
 
         this.getServer().getPluginManager().getPlugins().forEach((s, p) -> {
-            if (p.getName().equalsIgnoreCase("NPC")) slapper = true;
-            else if (p.getName().equalsIgnoreCase("LlamaPets")) pets = true;
+            if (p.getName().equalsIgnoreCase("NPC")) this.slapper = true;
+            else if (p.getName().equalsIgnoreCase("LlamaPets")) this.pets = true;
+            else if (p.getName().equalsIgnoreCase("Holograms")) this.holograms = true;
             else if (p.getName().equalsIgnoreCase("PlaceholderAPI")) this.placeholder();
         });
 
@@ -80,11 +84,14 @@ public class LlamaButcher extends PluginBase {
                 boolean kill = true;
                 if (this.slapper && entity instanceof NPC_Entity) kill = false;
                 else if (this.pets && entity instanceof Pet) kill = false;
+                else if (this.holograms && entity instanceof HologramEntity) kill = false;
+                else if (!this.nametag && entity.hasCustomName()) kill = false;
                 else if (entity instanceof Player) kill = false;
                 else if (entity instanceof EntityPainting) kill = false;
                 else if (entity instanceof EntityEndCrystal) kill = false;
+                else if (entity instanceof EntityBoat) kill = false;
+                else if (entity instanceof EntityVehicle) kill = false; // minecarts
                 else if (entity.getNetworkId() == 61) kill = false; // armor stand
-                else if (this.nametag && entity.hasCustomName()) kill = false;
 
                 if (kill) {
                     entity.despawnFromAll();
