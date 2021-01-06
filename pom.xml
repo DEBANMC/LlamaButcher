@@ -6,7 +6,7 @@
 
     <groupId>net.lldv.llamabutcher</groupId>
     <artifactId>LlamaButcher</artifactId>
-    <version>1.0.2-SNAPSHOT</version>
+    <version>1.0.3-SNAPSHOT</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
