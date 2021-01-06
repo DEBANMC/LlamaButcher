@@ -2,6 +2,7 @@ package net.lldv.llamabutcher;
 
 import cn.nukkit.Player;
 import cn.nukkit.entity.Entity;
+import cn.nukkit.entity.EntityHuman;
 import cn.nukkit.entity.item.EntityBoat;
 import cn.nukkit.entity.item.EntityEndCrystal;
 import cn.nukkit.entity.item.EntityPainting;
@@ -86,7 +87,7 @@ public class LlamaButcher extends PluginBase {
                 else if (this.pets && entity instanceof Pet) kill = false;
                 else if (this.holograms && entity instanceof HologramEntity) kill = false;
                 else if (!this.nametag && entity.hasCustomName()) kill = false;
-                else if (entity instanceof Player) kill = false;
+                else if (entity instanceof EntityHuman) kill = false;
                 else if (entity instanceof EntityPainting) kill = false;
                 else if (entity instanceof EntityEndCrystal) kill = false;
                 else if (entity instanceof EntityBoat) kill = false;
