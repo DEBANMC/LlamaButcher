@@ -6,7 +6,7 @@
 
     <groupId>net.lldv.llamabutcher</groupId>
     <artifactId>LlamaButcher</artifactId>
-    <version>1.0.3-SNAPSHOT</version>
+    <version>1.0.4-SNAPSHOT</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -42,6 +42,13 @@
             <artifactId>NPC</artifactId>
             <version>2.3.3</version>
             <systemPath>${basedir}/libs/NPC-2.3.3.jar</systemPath>
+            <scope>system</scope>
+        </dependency>
+        <dependency>
+            <groupId>NPC2</groupId>
+            <artifactId>NPC2</artifactId>
+            <version>2.3.3</version>
+            <systemPath>${basedir}/libs/NPC-3.0.0.jar</systemPath>
             <scope>system</scope>
         </dependency>
         <dependency>
