@@ -1,16 +1,17 @@
 package net.lldv.llamabutcher;
 
-import cn.nukkit.Player;
 import cn.nukkit.entity.Entity;
 import cn.nukkit.entity.EntityHuman;
 import cn.nukkit.entity.item.EntityBoat;
 import cn.nukkit.entity.item.EntityEndCrystal;
 import cn.nukkit.entity.item.EntityPainting;
 import cn.nukkit.entity.item.EntityVehicle;
+import cn.nukkit.plugin.Plugin;
 import cn.nukkit.plugin.PluginBase;
 import cn.nukkit.utils.Config;
 import com.creeperface.nukkit.placeholderapi.api.PlaceholderAPI;
 import gt.creeperface.holograms.entity.HologramEntity;
+import idk.plugin.npc.entities.EntityNPC;
 import idk.plugin.npc.entities.NPC_Entity;
 import lombok.Getter;
 import lombok.Setter;
@@ -30,7 +31,8 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class LlamaButcher extends PluginBase {
 
-    private boolean slapper = false, pets = false, nametag = false, holograms = false;
+    // slapper = petteri's plugin, npc = c1oky's plugin
+    private boolean slapper = false, pets = false, nametag = false, holograms = false, npc = false;
     @Getter
     private Announcement announcement;
 
@@ -68,6 +70,14 @@ public class LlamaButcher extends PluginBase {
             else if (p.getName().equalsIgnoreCase("PlaceholderAPI")) this.placeholder();
         });
 
+        if (this.slapper) {
+            final Plugin plugin = this.getServer().getPluginManager().getPlugin("NPC");
+            if (plugin.getDescription().getAuthors().contains("C1oky")) {
+                this.slapper = false;
+                this.npc = true;
+            }
+        }
+
         this.getServer().getCommandMap().register("clearlag", new ClearLagCommand(this, c.getSection("Commands.Clearlag")));
         this.getServer().getScheduler().scheduleDelayedRepeatingTask(this, new ClearLagTask(this), 100, 20);
     }
@@ -84,6 +94,7 @@ public class LlamaButcher extends PluginBase {
             for (Entity entity : level.getEntities()) {
                 boolean kill = true;
                 if (this.slapper && entity instanceof NPC_Entity) kill = false;
+                else if (this.npc && entity instanceof EntityNPC) kill = false;
                 else if (this.pets && entity instanceof Pet) kill = false;
                 else if (this.holograms && entity instanceof HologramEntity) kill = false;
                 else if (!this.nametag && entity.hasCustomName()) kill = false;
