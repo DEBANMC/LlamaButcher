@@ -84,7 +84,11 @@ public class LlamaButcher extends PluginBase {
 
     public void placeholder() {
         final PlaceholderAPI api = PlaceholderAPI.getInstance();
-        api.staticPlaceholder("clearlag", p -> seconds, 20, true);
+        api.builder("clearlag", Integer.class)
+                .loader(entry -> seconds)
+                .updateInterval(20)
+                .autoUpdate(true)
+                .build();
     }
 
     public int clearAll() {
