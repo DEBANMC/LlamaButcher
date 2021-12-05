@@ -32,6 +32,13 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
+            <groupId>Holograms</groupId>
+            <artifactId>Holograms</artifactId>
+            <version>3.2.0</version>
+            <systemPath>${basedir}/libs/holograms.jar</systemPath>
+            <scope>system</scope>
+        </dependency>
+        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.8</version>
