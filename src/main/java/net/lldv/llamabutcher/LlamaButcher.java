@@ -97,7 +97,7 @@ public class LlamaButcher extends PluginBase {
                 else if (entity instanceof EntityPainting) kill = false;
                 else if (entity instanceof EntityEndCrystal) kill = false;
                 else if (entity instanceof EntityBoat) kill = false;
-                else if (entity instanceof EntityWither) kill = false;
+                else if (entity.getNetworkId() == 52) kill = false;
                 else if (entity instanceof EntityVehicle) kill = false; // minecarts
                 else if (entity.getNetworkId() == 61) kill = false; // armor stand FloatingTextParticle
 
