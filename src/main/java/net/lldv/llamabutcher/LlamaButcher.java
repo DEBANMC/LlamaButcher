@@ -6,6 +6,7 @@ import cn.nukkit.entity.item.EntityBoat;
 import cn.nukkit.entity.item.EntityEndCrystal;
 import cn.nukkit.entity.item.EntityPainting;
 import cn.nukkit.entity.item.EntityVehicle;
+import cn.nukkit.entity.mob.EntityWither;
 import cn.nukkit.plugin.Plugin;
 import cn.nukkit.plugin.PluginBase;
 import cn.nukkit.utils.Config;
@@ -87,7 +88,6 @@ public class LlamaButcher extends PluginBase {
         this.getServer().getLevels().forEach((i, level) -> {
             for (Entity entity : level.getEntities()) {
                 boolean kill = true;
-                if (this.holograms && entity instanceof HologramEntity) kill = false;
                 else if (!this.nametag && entity.hasCustomName()) kill = false;
                 else if (entity instanceof EntityHuman) kill = false;
                 else if (entity instanceof EntityPainting) kill = false;
