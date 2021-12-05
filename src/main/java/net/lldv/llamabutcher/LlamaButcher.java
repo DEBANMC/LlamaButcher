@@ -9,16 +9,11 @@ import cn.nukkit.entity.item.EntityVehicle;
 import cn.nukkit.plugin.Plugin;
 import cn.nukkit.plugin.PluginBase;
 import cn.nukkit.utils.Config;
-import com.creeperface.nukkit.placeholderapi.api.PlaceholderAPI;
-import gt.creeperface.holograms.entity.HologramEntity;
-import idk.plugin.npc.entities.EntityNPC;
-import idk.plugin.npc.entities.NPC_Entity;
 import lombok.Getter;
 import lombok.Setter;
 import net.lldv.llamabutcher.commands.ClearLagCommand;
 import net.lldv.llamabutcher.components.language.Language;
 import net.lldv.llamabutcher.components.tasks.ClearLagTask;
-import net.lldv.llamapets.components.data.entities.Pet;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -83,12 +78,7 @@ public class LlamaButcher extends PluginBase {
     }
 
     public void placeholder() {
-        final PlaceholderAPI api = PlaceholderAPI.getInstance();
-        api.builder("clearlag", Integer.class)
-                .loader(entry -> seconds)
-                .updateInterval(20)
-                .autoUpdate(true)
-                .build();
+        
     }
 
     public int clearAll() {
