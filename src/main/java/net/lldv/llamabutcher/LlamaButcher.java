@@ -6,8 +6,6 @@ import cn.nukkit.entity.item.EntityBoat;
 import cn.nukkit.entity.item.EntityEndCrystal;
 import cn.nukkit.entity.item.EntityPainting;
 import cn.nukkit.entity.item.EntityVehicle;
-import cn.nukkit.entity.mob.EntityWither;
-import cn.nukkit.level.particle.FloatingTextParticle;
 import cn.nukkit.plugin.Plugin;
 import cn.nukkit.plugin.PluginBase;
 import cn.nukkit.utils.Config;
