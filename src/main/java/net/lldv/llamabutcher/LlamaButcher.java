@@ -87,10 +87,7 @@ public class LlamaButcher extends PluginBase {
         this.getServer().getLevels().forEach((i, level) -> {
             for (Entity entity : level.getEntities()) {
                 boolean kill = true;
-                if (this.slapper && entity instanceof NPC_Entity) kill = false;
-                else if (this.npc && entity instanceof EntityNPC) kill = false;
-                else if (this.pets && entity instanceof Pet) kill = false;
-                else if (this.holograms && entity instanceof HologramEntity) kill = false;
+                if (this.holograms && entity instanceof HologramEntity) kill = false;
                 else if (!this.nametag && entity.hasCustomName()) kill = false;
                 else if (entity instanceof EntityHuman) kill = false;
                 else if (entity instanceof EntityPainting) kill = false;
