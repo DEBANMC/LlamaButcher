@@ -7,6 +7,7 @@ import cn.nukkit.entity.item.EntityEndCrystal;
 import cn.nukkit.entity.item.EntityPainting;
 import cn.nukkit.entity.item.EntityVehicle;
 import cn.nukkit.entity.mob.EntityWither;
+import cn.nukkit.level.particle.FloatingTextParticle;
 import cn.nukkit.plugin.Plugin;
 import cn.nukkit.plugin.PluginBase;
 import cn.nukkit.utils.Config;
@@ -94,8 +95,9 @@ public class LlamaButcher extends PluginBase {
                 else if (entity instanceof EntityEndCrystal) kill = false;
                 else if (entity instanceof EntityBoat) kill = false;
                 else if (entity instanceof EntityWither) kill = false;
+                else if (entity instanceof FloatingTextParticle) kill = false;
                 else if (entity instanceof EntityVehicle) kill = false; // minecarts
-                else if (entity.getNetworkId() == 61) kill = false; // armor stand
+                else if (entity.getNetworkId() == 61) kill = false; // armor stand FloatingTextParticle
 
                 if (kill) {
                     entity.despawnFromAll();
