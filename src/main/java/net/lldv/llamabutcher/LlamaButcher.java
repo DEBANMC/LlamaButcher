@@ -17,6 +17,8 @@ import net.lldv.llamabutcher.commands.ClearLagCommand;
 import net.lldv.llamabutcher.components.language.Language;
 import net.lldv.llamabutcher.components.tasks.ClearLagTask;
 
+import gt.creeperface.holograms.entity.HologramEntity;
+
 import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -90,6 +92,7 @@ public class LlamaButcher extends PluginBase {
             for (Entity entity : level.getEntities()) {
                 boolean kill = true;
                 if (!this.nametag && entity.hasCustomName()) kill = false;
+                else if (this.holograms && entity instanceof HologramEntity) kill = false;
                 else if (entity instanceof EntityHuman) kill = false;
                 else if (entity instanceof EntityPainting) kill = false;
                 else if (entity instanceof EntityEndCrystal) kill = false;
