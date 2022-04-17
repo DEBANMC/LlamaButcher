@@ -88,6 +88,8 @@ public class LlamaButcher extends PluginBase {
 
         this.getServer().getLevels().forEach((i, level) -> {
             for (Entity entity : level.getEntities()) {
+                CompoundTag compoundTag = entity.namedTag;
+                
                 boolean kill = true;
                 if (!this.nametag && entity.hasCustomName()) kill = false;
                 else if (this.holograms && entity instanceof HologramEntity) kill = false;
@@ -98,7 +100,8 @@ public class LlamaButcher extends PluginBase {
                 else if (entity.getNetworkId() == 52) kill = false;
                 else if (entity instanceof EntityVehicle) kill = false; // minecarts
                 else if (entity.getNetworkId() == 61) kill = false; // armor stand FloatingTextParticle
-
+                else if (compoundTag.contains("npc")) kill = false;
+                
                 if (kill) {
                     entity.despawnFromAll();
                     entity.close();
