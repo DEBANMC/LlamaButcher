@@ -9,6 +9,7 @@ import cn.nukkit.entity.item.EntityVehicle;
 import cn.nukkit.plugin.Plugin;
 import cn.nukkit.plugin.PluginBase;
 import cn.nukkit.utils.Config;
+import cn.nukkit.nbt.tag.CompoundTag;
 import lombok.Getter;
 import lombok.Setter;
 import net.lldv.llamabutcher.commands.ClearLagCommand;
